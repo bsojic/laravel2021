@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\PagesController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,9 +20,21 @@ Route::get('/', function () {
 });
 
 // Route to products
-Route::get('/products', [ProductsController::class, 'index']);
+Route::get('/', [PagesController::class, 'index']);
+Route::get('/about', [PagesController::class, 'about']); 
+
+Route::get('/posts', [PostsController::class, 'index']);
 
 
+
+
+
+
+// // Pattern is integer
+// Route::get('/products/{id}', [ProductsController::class, 'show'])->where('id', '[0-9]+');
+
+// // Pattern is string
+// Route::get('/products/{name}', [ProductsController::class, 'show'])->where('name', '[a-zA-Z]+');
 
 
 
